@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import './css.css';
 
 const User = () => {
 
@@ -18,8 +19,16 @@ const User = () => {
         if(Details){
                 return(
                         <div>
-                            <h1>The definition of {Details[0].word} is :</h1>
-                            <h2>{Details[0].meanings[0].definitions[0].definition}</h2>
+                        <Link to={`/Information`}><h1 className='definition'>The definition of {Details[0].word} is :</h1></Link>
+                        {Details[0].meanings[0].definitions.map((item , key)=>{
+                            return(
+                                <div>
+                                    <tr>
+                                        <td className='line'><h2>{key+1}. {item.definition}</h2></td>
+                                    </tr>
+                                </div>
+                            )
+                        })}
                         </div>
                 );
         }
@@ -28,8 +37,8 @@ const User = () => {
   return (
     <div>
         <h1>This is User Page</h1>
-        <label htmlFor='search'>Please search a word</label>
-        <input onChange={(event)=>{setsearch(event.target.value)}} placeholder='Word here!'></input>
+        <label htmlFor='search'>Please search a word : </label>
+        <input className='input' onChange={(event)=>{setsearch(event.target.value)}} placeholder='Word here!'></input>
         <button onClick={Fetch}>submit</button>
         <Result/>
     </div>
