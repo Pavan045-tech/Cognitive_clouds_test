@@ -1,0 +1,15 @@
+*{
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content:center;
+}
+h1{
+    color: rgb(17, 83, 61);
+}
+button{
+    margin: 1px white solid;
+    background-color: rgb(10, 101, 70);
+    width: fit-content;
+    height: fit-content;
+}
